@@ -1,0 +1,9 @@
+package com.andreea.order_management.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.andreea.order_management.model.Customer;
+
+public interface CustomerRepository extends JpaRepository<Customer, Long>{
+    
+}

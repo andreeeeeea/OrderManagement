@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+h3 {
+  color: #e0e0e0;
+  font-weight: 400;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+select, input {
+  padding: 12px 16px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+select:focus, input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6c63ff 0%, #4834d4 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background: rgba(108, 99, 255, 0.3);
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 16px;
+  text-align: left;
+}
+
+td {
+  padding: 16px;
+  color: #e0e0e0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+td button {
+  padding: 8px 16px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pending { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+.confirmed { background: rgba(33, 150, 243, 0.2); color: #2196f3; }
+.shipped { background: rgba(156, 39, 176, 0.2); color: #9c27b0; }
+.delivered { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+.canceled { background: rgba(244, 67, 54, 0.2); color: #f44336; }

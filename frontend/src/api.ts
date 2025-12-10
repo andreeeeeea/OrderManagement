@@ -29,8 +29,8 @@ export const createOrder = async(orderRequest: CreateOrderRequest): Promise<Orde
 };
 
 export const updateOrderStatus = async(orderId: number, status: string): Promise<Order> => {
-    const res = await fetch(`${API_URL}/orders/${orderId}/status`, {
-        method: 'PUT',
+    const res = await fetch(`${API_URL}/orders/${orderId}/status?status=${status}`, {
+        method: 'PATCH',
     });
     return res.json();
 };

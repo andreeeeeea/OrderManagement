@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import type { Product } from '../types';
 import { getProducts } from '../api';
+import { useCart } from '../context/CartContext';
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     getProducts().then(setProducts);
@@ -18,9 +20,11 @@ function Products() {
             <div key={p.id} className="bg-white p-6 rounded-2xl shadow-lg">
               <h2 className="text-xl font-semibold mb-2">{p.name}</h2>
               <p className="text-gray-600 mb-4">{p.description}</p>
-              <p className="text-2xl font-bold text-pink-500 mb-4">${p.price}</p>
+              <p className="text-2xl font-bold text-pink-400 mb-4">${p.price}</p>
               <p className="text-sm text-gray-500 mb-4">{p.stockQuantity} in stock</p>
-              <button className="w-full p-3 bg-pink-500 text-white rounded-xl hover:bg-pink-600">
+              <button
+                onClick={() => addToCart(p)}
+                className="w-full p-3 bg-pink-200 text-pink-800 rounded-xl hover:bg-pink-300">
                 Add to Cart
               </button>
             </div>

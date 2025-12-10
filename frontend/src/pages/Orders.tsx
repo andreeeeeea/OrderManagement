@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import type { Order } from '../types';
-import { getOrders } from '../api';
+import { getOrders, updateOrderStatus } from '../api';
 
 function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
 
-  useEffect(() => {
+  const loadOrders = () => {
     getOrders().then(setOrders);
+  };
+
+  useEffect(() => {
+    loadOrders();
   }, []);
 
   const statusColors: Record<string, string> = {
@@ -15,6 +19,12 @@ function Orders() {
     SHIPPED: 'bg-purple-100 text-purple-700',
     DELIVERED: 'bg-green-100 text-green-700',
     CANCELED: 'bg-red-100 text-red-700',
+  };
+
+  const nextStatus: Record<string, string> = {
+    PENDING: 'CONFIRMED',
+    CONFIRMED: 'SHIPPED',
+    SHIPPED: 'DELIVERED',
   };
 
   return (
@@ -50,6 +60,14 @@ function Orders() {
                   <span className="font-semibold">Total</span>
                   <span className="font-bold text-lg">${o.totalAmount}</span>
                 </div>
+                {nextStatus[o.status] && (
+                  <button
+                    onClick={() => updateOrderStatus(o.id, nextStatus[o.status]).then(loadOrders)}
+                    className="mt-4 w-full px-4 py-2 bg-pink-200 text-pink-800 rounded-lg hover:bg-pink-300"
+                  >
+                    Mark as {nextStatus[o.status]}
+                  </button>
+                )}
               </div>
             ))}
           </div>

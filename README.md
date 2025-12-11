@@ -2,6 +2,9 @@
 
 A full-stack order management application built with Spring Boot and React.
 
+![alt text](https://github.com/andreeeeeea/OrderManagement/blob/main/dashboard.png?raw=true)
+
+
 ## Tech Stack
 
 - **Backend:** Spring Boot, PostgreSQL, RabbitMQ
